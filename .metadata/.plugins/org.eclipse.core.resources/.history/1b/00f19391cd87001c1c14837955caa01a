@@ -1,0 +1,32 @@
+package com.algrithm.solution;
+
+import java.util.HashMap;
+import java.util.Map;
+
+public class Solution {
+	public int[] twoSum(int[] num, int target) {
+        int[] ans = new int[2];
+
+        Map<Integer, Integer> map = new HashMap<>();
+        for (int i=0;i<num.length;i++) {
+            if (map.containsKey(target - num[i])) {
+                ans[1] = i;
+                ans[0] = map.get(target - num[i]);
+                return ans;
+            }
+            map.put(num[i], i);
+        }
+        return ans;
+    }
+
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+        Solution ts = new Solution();
+
+        System.out.println(ts.twoSum(new int[]{2, 7, 11, 15}, 9));
+        System.out.println(ts.twoSum(new int[]{1, 2, 3}, 5));
+
+	}
+
+}
